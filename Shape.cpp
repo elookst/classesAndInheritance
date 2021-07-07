@@ -12,8 +12,12 @@ Shape::Shape(string nameInput, string colourInput)
 	colour = colourInput;
 }
 
-//default constructor - confirm this
-
+Shape::Shape()
+{
+	name = "Unknown";
+	colour = "undefined";
+	//default constructor - confirm this
+}
 
 string Shape::GetName(void)
 {

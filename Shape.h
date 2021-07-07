@@ -19,7 +19,7 @@ public:
 
 	Shape(std::string nameInput, std::string colourInput);
 
-	//default constructor - confirm this
+	Shape(); //default constructor - confirm this
 
 	std::string GetName(void);
 
