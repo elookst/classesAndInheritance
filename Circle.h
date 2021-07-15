@@ -16,12 +16,13 @@ public:
 
 	Circle(std::string colourInput, float radiusInput);
 
-	//default constructor
-	//sets radius to 0.0
+	Circle();
 
 	~Circle();
 
 	float GetRadius(void);
+
+	int SetRadius(float);
 	//getters for name and colour?
 	//validate input
 

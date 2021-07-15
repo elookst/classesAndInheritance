@@ -7,15 +7,26 @@
 
 using namespace std;
 
-Circle::Circle(string& colourInput, float radiusInput)
+Circle::Circle(string colourInput, float radiusInput) : Shape("Circle", colourInput)
 {
-	//colour = colourInput;
-	radius = radiusInput;
+	
+	//check that this works for 0.001, 0.0001 but not 0.01 or 0.1
+	double radiusDiff = radiusInput - 0.00;
+	double tolerance = 0.0005;
+	if (radiusDiff < tolerance && radiusInput >= 0.00)
+	{
+		radius = radiusInput;
+	}
+	else
+	{
+		radius = 0.00;
+	}
+
 }
 
-Circle::Circle()
+Circle::Circle() : Shape("Circle", "undefined")
 {
-	radius = 0.0;
+	radius = 0.00;
 }
 
 
@@ -24,9 +35,31 @@ Circle::~Circle()
 	cout << "The circle is broken ...";
 }
 
-float GetRadius(void);
-//getters for name and colour?
-//validate input
+
+float Circle::GetRadius(void)
+{
+	float tempRadius;
+
+	tempRadius = radius;
+	return tempRadius;
+}
+
+int Circle::SetRadius(float radiusInput)
+{
+	//check that this works for 0.001, 0.0001 but not 0.01 or 0.1
+	double radiusDiff = radiusInput - 0.00;
+	double tolerance = 0.0005;
+	if (radiusDiff < tolerance && radiusInput >= 0.00)
+	{
+		radius = radiusInput;
+		return 0; //success
+	}
+	else
+	{
+		return -1; //invalid input failed
+	}
+}
+
 
 int Show(void);
 //prints out info

@@ -18,7 +18,7 @@ private:
 	
 public:
 
-	Shape(std::string& nameInput, std::string& colourInput);
+	Shape(std::string nameInput, std::string colourInput);
 
 	Shape(); //default constructor - confirm this
 
@@ -28,9 +28,9 @@ public:
 	//watch return data type? don't want to change data member's value
 
 	//also need to validate the input - if invalid leave data as it was
-	void SetName(std::string& nameInput);
+	int SetName(std::string nameInput);
 
-	void SetColour(std::string& colourInput);
+	int SetColour(std::string colourInput);
 
 	//3 pure virtual functions
 	virtual double Perimeter(void);

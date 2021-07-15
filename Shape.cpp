@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Shape::Shape(string& nameInput, string& colourInput)
+Shape::Shape(string nameInput, string colourInput)
 {
 	const string AVAILABLE_NAMES[] = { "Circle", "Square","Unknown" };
 	const int AVAILABLE_NAMES_LEN = sizeof(AVAILABLE_NAMES) / sizeof(string);
@@ -74,7 +74,7 @@ string Shape::GetColour(void)
 }
 
 
-void Shape::SetName(string& nameInput)
+int Shape::SetName(string nameInput)
 {
 	const string AVAILABLE_NAMES[] = { "Circle", "Square","Unknown" };
 	const int AVAILABLE_NAMES_LEN = sizeof(AVAILABLE_NAMES) / sizeof(string);
@@ -87,13 +87,17 @@ void Shape::SetName(string& nameInput)
 			if (nameInput == AVAILABLE_NAMES[i])
 			{
 				name = nameInput;
+				return 0; //success
 			}
 		}
 	}
-	
+	else
+	{
+		return -1; //invalid input, fail
+	}
 }
 
-void Shape::SetColour(string& colourInput)
+int Shape::SetColour(string colourInput)
 {
 	const string AVAILABLE_COLOURS[] = { "red", "green", "blue", "yellow", "purple", "pink", "orange", "undefined" };
 	const int AVAILABLE_COLOURS_LEN = sizeof(AVAILABLE_COLOURS) / sizeof(string);
@@ -106,10 +110,14 @@ void Shape::SetColour(string& colourInput)
 			if (colourInput == AVAILABLE_COLOURS[i])
 			{
 				colour = colourInput;
+				return 0; //success
 			}
 		}
 	}
-
+	else
+	{
+		return -1; //invalid input, fail
+	}
 }
 
 //3 pure virtual functions
