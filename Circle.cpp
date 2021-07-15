@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Circle::Circle(string colourInput, float radiusInput)
+Circle::Circle(string& colourInput, float radiusInput)
 {
 	//colour = colourInput;
 	radius = radiusInput;
@@ -18,8 +18,6 @@ Circle::Circle()
 	radius = 0.0;
 }
 
-//default constructor
-//sets radius to 0.0
 
 Circle::~Circle()
 {
