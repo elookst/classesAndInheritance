@@ -6,17 +6,53 @@
 
 using namespace std;
 
-Shape::Shape(string nameInput, string colourInput)
+Shape::Shape(string& nameInput, string& colourInput)
 {
-	name = nameInput;
-	colour = colourInput;
+	const string AVAILABLE_NAMES[] = { "Circle", "Square","Unknown" };
+	const int AVAILABLE_NAMES_LEN = sizeof(AVAILABLE_NAMES) / sizeof(string);
+	const unsigned long MAX_NAME_LEN = 50; // max 50 characters allowed in name input
+
+	if (nameInput.length() <= MAX_NAME_LEN)
+	{
+		for (int i = 0; i < AVAILABLE_NAMES_LEN; i++)
+		{
+			if (nameInput == AVAILABLE_NAMES[i])
+			{
+				name = nameInput;
+			}
+		}
+	}
+	else
+	{
+		name = "Unknown";
+	}
+
+
+	const string AVAILABLE_COLOURS[] = { "red", "green", "blue", "yellow", "purple", "pink", "orange", "undefined" };
+	const int AVAILABLE_COLOURS_LEN = sizeof(AVAILABLE_COLOURS) / sizeof(string);
+	const unsigned long MAX_COLOUR_LEN = 10; // max 10 characters allowed in colour input
+
+	if (colourInput.length() <= MAX_COLOUR_LEN)
+	{
+		for (int i = 0; i < AVAILABLE_COLOURS_LEN; i++)
+		{
+			if (nameInput == AVAILABLE_COLOURS[i])
+			{
+				colour = colourInput;
+			}
+		}
+	}
+	else
+	{
+		colour = "undefined";
+	}
+
 }
 
 Shape::Shape()
 {
 	name = "Unknown";
 	colour = "undefined";
-	//default constructor - confirm this
 }
 
 string Shape::GetName(void)
@@ -31,12 +67,12 @@ string Shape::GetColour(void)
 //watch return data type? don't want to change data member's value
 
 //also need to validate the input - if invalid leave data as it was
-void Shape::SetName(string nameInput)
+void Shape::SetName(string& nameInput)
 {
 	name = nameInput;
 }
 
-void Shape::SetColour(string colourInput)
+void Shape::SetColour(string& colourInput)
 {
 	colour = colourInput;
 }

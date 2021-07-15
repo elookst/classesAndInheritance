@@ -4,6 +4,7 @@
 #include <string>
 
 
+
 class Shape
 {
 private:
@@ -17,7 +18,7 @@ private:
 	
 public:
 
-	Shape(std::string nameInput, std::string colourInput);
+	Shape(std::string& nameInput, std::string& colourInput);
 
 	Shape(); //default constructor - confirm this
 
@@ -27,17 +28,17 @@ public:
 	//watch return data type? don't want to change data member's value
 
 	//also need to validate the input - if invalid leave data as it was
-	void SetName(std::string nameInput);
+	void SetName(std::string& nameInput);
 
-	void SetColour(std::string colourInput);
+	void SetColour(std::string& colourInput);
 
 	//3 pure virtual functions
-	double Perimeter(void);
+	virtual double Perimeter(void);
 
-	double Area(void);
+	virtual double Area(void);
 
-	double OverallDimension(void);
-
+	virtual double OverallDimension(void);
+	
 	//no destructor needed
 
 };
