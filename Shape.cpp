@@ -121,17 +121,17 @@ int Shape::SetColour(string colourInput)
 }
 
 //3 pure virtual functions
-double Shape::Perimeter(void)
+float Shape::Perimeter(void)
 {
 	return 0.00;
 }
 
-double Shape::Area(void)
+float Shape::Area(void)
 {
 	return 0.00;
 }
 
-double Shape::OverallDimension(void)
+float Shape::OverallDimension(void)
 {
 	return 0.00;
 }
