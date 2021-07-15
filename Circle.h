@@ -28,11 +28,11 @@ public:
 
 	int Show(void);
 
-	virtual double Perimeter(void);
+	virtual float Perimeter(void);
 
-	virtual double Area(void);
+	virtual float Area(void);
 
-	virtual double OverallDimension(void);
+	virtual float OverallDimension(void);
 	//prints out info
 
 	//perimeter 2*pi*r

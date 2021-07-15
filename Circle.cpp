@@ -41,7 +41,7 @@ Circle::~Circle()
 
 float Circle::GetRadius(void)
 {
-	float tempRadius;
+	float tempRadius = 0;
 
 	tempRadius = radius;
 	return tempRadius;
@@ -74,19 +74,19 @@ int Circle::Show(void)
 	cout << "Area             : " << Area() << " cm";
 }
 
-double Circle::Perimeter(void)
+float Circle::Perimeter(void)
 {
-	double perimeter = 2 * PI * radius;
+	float perimeter = 2 * PI * radius;
 	return perimeter;
 }
 
-double Circle::Area(void)
+float Circle::Area(void)
 {
-	double area = PI * radius * radius;
+	float area = PI * radius * radius;
 	return area;
 }
 
-double Circle::OverallDimension(void)
+float Circle::OverallDimension(void)
 {
 	return 2 * radius;
 }

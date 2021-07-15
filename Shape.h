@@ -33,11 +33,11 @@ public:
 	int SetColour(std::string colourInput);
 
 	//3 pure virtual functions
-	virtual double Perimeter(void);
+	virtual float Perimeter(void);
 
-	virtual double Area(void);
+	virtual float Area(void);
 
-	virtual double OverallDimension(void);
+	virtual float OverallDimension(void);
 	
 	//no destructor needed
 

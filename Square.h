@@ -12,19 +12,25 @@ private:
 	//val must be greater than or equal to 0
 
 public:
-	Square(std::string colour, float sideLengthInput);
+	Square(std::string colourInput, float sideLengthInput);
 
 	//default constructor
 	Square();
 
-	~Square();
+	virtual ~Square();
 
 	float GetSideLength(void);
 
 	void SetSideLength(float sideLengthInput);
 	//set the attribute if valid only
 
-	int Show(void);
+	void Show(void);
+
+	virtual float Perimeter(void);
+
+	virtual float Area(void);
+
+	virtual float OverallDimension(void);
 	//display properties (inherit maybe?)
 
 	//p = 4s
