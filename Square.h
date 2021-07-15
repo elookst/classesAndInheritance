@@ -21,7 +21,7 @@ public:
 
 	float GetSideLength(void);
 
-	void SetSideLength(float sideLengthInput);
+	int SetSideLength(float sideLengthInput);
 	//set the attribute if valid only
 
 	void Show(void);

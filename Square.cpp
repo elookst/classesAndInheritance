@@ -42,7 +42,7 @@ float Square::GetSideLength(void)
 	return tempLength;
 }
 
-void Square::SetSideLength(float sideLengthInput)
+int Square::SetSideLength(float sideLengthInput)
 {
 	//check that this works for 0.001, 0.0001 but not 0.01 or 0.1
 	double sideDiff = sideLengthInput - 0.00;
@@ -50,11 +50,13 @@ void Square::SetSideLength(float sideLengthInput)
 	if (sideDiff < tolerance && sideLengthInput >= 0.00)
 	{
 		sideLength = sideLengthInput;
+		return 0; // success
 	}
 	else
 	{
-		sideLength = 0.00;
+		return -1; // invalid input
 	}
+
 }
 //set the attribute if valid only
 
@@ -85,9 +87,4 @@ float Square::OverallDimension(void)
 {
 	return Square::GetSideLength();
 }
-//display properties (inherit maybe?)
 
-//p = 4s
-// a = s^2
-
-//Overall Dimension should return side length of square (s)
