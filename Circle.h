@@ -18,7 +18,7 @@ public:
 
 	Circle();
 
-	~Circle();
+	virtual ~Circle();
 
 	float GetRadius(void);
 
@@ -27,6 +27,12 @@ public:
 	//validate input
 
 	int Show(void);
+
+	virtual double Perimeter(void);
+
+	virtual double Area(void);
+
+	virtual double OverallDimension(void);
 	//prints out info
 
 	//perimeter 2*pi*r

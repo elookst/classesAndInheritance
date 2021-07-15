@@ -5,6 +5,8 @@
 #include "Shape.h"
 #include "Circle.h"
 
+#define PI 3.1415926
+
 using namespace std;
 
 Circle::Circle(string colourInput, float radiusInput) : Shape("Circle", colourInput)
@@ -21,6 +23,7 @@ Circle::Circle(string colourInput, float radiusInput) : Shape("Circle", colourIn
 	{
 		radius = 0.00;
 	}
+
 
 }
 
@@ -61,11 +64,30 @@ int Circle::SetRadius(float radiusInput)
 }
 
 
-int Show(void);
-//prints out info
+int Circle::Show(void)
+{
+	cout << "Shape Information:\n";
+	cout << "Name             : " << Shape::GetName();
+	cout << "Colour           : " << Shape::GetColour();
+	cout << "Radius           : " << GetRadius() << " cm";
+	cout << "Circumference    : " << Perimeter() << " cm";
+	cout << "Area             : " << Area() << " cm";
+}
 
-//perimeter 2*pi*r
-//area pi * r^2
-//pi is 3.1415926
+double Circle::Perimeter(void)
+{
+	double perimeter = 2 * PI * radius;
+	return perimeter;
+}
 
-//overall dimension should return circle diameter (2r)
+double Circle::Area(void)
+{
+	double area = PI * radius * radius;
+	return area;
+}
+
+double Circle::OverallDimension(void)
+{
+	return 2 * radius;
+}
+
