@@ -20,11 +20,16 @@ Shape::Shape(string nameInput, string colourInput)
 			if (nameInput == AVAILABLE_NAMES[i])
 			{
 				name = nameInput;
+				break;
 			}
+		}
+		if (i == AVAILABLE_NAMES_LEN)
+		{
+			name = "Unknown";
 		}
 
 	}
-	else if (name == "")
+	else
 	{
 		name = "Unknown";
 	}
@@ -43,6 +48,7 @@ Shape::Shape(string nameInput, string colourInput)
 			if (colourInput == AVAILABLE_COLOURS[j])
 			{
 				colour = colourInput;
+				break;
 			}
 		}
 		if (j == AVAILABLE_COLOURS_LEN)
@@ -50,7 +56,7 @@ Shape::Shape(string nameInput, string colourInput)
 			colour = "undefined";
 		}
 	}
-	else if (name == "")
+	else
 	{
 		colour = "undefined";
 	}
@@ -90,7 +96,8 @@ int Shape::SetName(string nameInput)
 
 	if (nameInput.length() <= MAX_NAME_LEN)
 	{
-		for (int i = 0; i < AVAILABLE_NAMES_LEN; i++)
+		int i = 0;
+		for (i = 0; i < AVAILABLE_NAMES_LEN; i++)
 		{
 			if (nameInput == AVAILABLE_NAMES[i])
 			{
@@ -98,11 +105,18 @@ int Shape::SetName(string nameInput)
 				return 0; //success
 			}
 		}
+		if (i == AVAILABLE_NAMES_LEN)
+		{
+			return -1; //no available name
+		}
+
 	}
 	else
 	{
-		return -1; //invalid input, fail
+		return -2; // name too long
 	}
+
+	return -3;  //error
 }
 
 int Shape::SetColour(string colourInput)
@@ -113,7 +127,8 @@ int Shape::SetColour(string colourInput)
 
 	if (colourInput.length() <= MAX_COLOUR_LEN)
 	{
-		for (int i = 0; i < AVAILABLE_COLOURS_LEN; i++)
+		int i = 0;
+		for (i = 0; i < AVAILABLE_COLOURS_LEN; i++)
 		{
 			if (colourInput == AVAILABLE_COLOURS[i])
 			{
@@ -121,11 +136,17 @@ int Shape::SetColour(string colourInput)
 				return 0; //success
 			}
 		}
+		if (i == AVAILABLE_COLOURS_LEN)
+		{
+			return -1; //invalid input, no colour in list
+		}
 	}
 	else
 	{
-		return -1; //invalid input, fail
+		return -2; //invalid input, fail
 	}
+
+	return -3;  //error
 }
 
 //3 pure virtual functions

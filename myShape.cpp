@@ -28,7 +28,6 @@ int main(void)
 	cin >> userColour;
 
 
-	cout << "Creating shape....\n";
 	if (userShape == "Circle")
 	{
 		
@@ -40,6 +39,7 @@ int main(void)
 			cout << "Out of memory!\n";
 			return -1; 
 		}
+
 
 	}
 	else if (userShape == "Square")
@@ -67,7 +67,6 @@ int main(void)
 
 	}
 
-	cout << "Now displaying information...\n ";
 	if (userCircle != NULL)
 	{
 		userCircle->Show();

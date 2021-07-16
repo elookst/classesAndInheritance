@@ -11,11 +11,9 @@ using namespace std;
 
 Circle::Circle(string colourInput, float radiusInput) : Shape("Circle", colourInput)
 {
-	
-	//check that this works for 0.001, 0.0001 but not 0.01 or 0.1
-	double radiusDiff = radiusInput - 0.00;
-	double tolerance = 0.001;
-	if (radiusDiff > tolerance && radiusInput >= 0.00)
+
+	double tolerance = 0.000001;
+	if (radiusInput > tolerance && radiusInput >= 0.00)
 	{
 		radius = radiusInput;
 	}
@@ -49,10 +47,8 @@ float Circle::GetRadius(void)
 
 int Circle::SetRadius(float radiusInput)
 {
-	//check that this works for 0.001, 0.0001 but not 0.01 or 0.1
-	double radiusDiff = radiusInput - 0.00;
-	double tolerance = 0.001;
-	if ((radiusDiff > tolerance) && radiusInput >= 0.00)
+	double tolerance = 0.000001;
+	if ((radiusInput > tolerance) && (radiusInput >= 0.00))
 	{
 		radius = radiusInput;
 		return 0; //success

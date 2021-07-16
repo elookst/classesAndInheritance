@@ -10,10 +10,8 @@ using namespace std;
 
 Square::Square(string colourInput, float sideLengthInput) : Shape("Square", colourInput)
 {
-	//check that this works for 0.001, 0.0001 but not 0.01 or 0.1
-	double sideDiff = sideLengthInput - 0.00;
-	double tolerance = 0.001;
-	if (sideDiff > tolerance && sideLengthInput >= 0.00)
+	double tolerance = 0.000001;
+	if (sideLengthInput > tolerance && sideLengthInput >= 0.00)
 	{
 		sideLength = sideLengthInput;
 	}
@@ -44,10 +42,8 @@ float Square::GetSideLength(void)
 
 int Square::SetSideLength(float sideLengthInput)
 {
-	//check that this works for 0.001, 0.0001 but not 0.01 or 0.1
-	double sideDiff = sideLengthInput - 0.00;
-	double tolerance = 0.001;
-	if (sideDiff > tolerance && sideLengthInput >= 0.00)
+	double tolerance = 0.000001;
+	if (sideLengthInput > tolerance && sideLengthInput >= 0.00)
 	{
 		sideLength = sideLengthInput;
 		return 0; // success
