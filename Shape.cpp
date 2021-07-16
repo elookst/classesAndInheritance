@@ -2,7 +2,7 @@
 //	PROJECT			:	OOP Assignment #4
 //	PROGRAMMER		:	Erica Luksts
 //	FIRST-VERSION	:	July 14, 2021
-//	DESCRIPTION		:	This file contains the definition for the methods and functions of the SHAPES class.
+//	DESCRIPTION		:	This file contains the definition for the methods and functions of the Shape class.
 
 #include <iostream>
 #include <string>
@@ -10,16 +10,16 @@
 
 using namespace std;
 
-/// \brief To instantiate a new SHAPE object - given a set of attribute values
+/// \brief To instantiate a new Shape object - given a set of attribute values
 /// \details <b>Details</b>
 /// 
-/// \param nameInput - <b>string</b> - name of the shape to create (CIRCLE, SQUARE, UNKNOWN)
-/// \param colourInput - <b>string</b> - colour of the shape (see constant <i>AVAILABLE_COLOURS</i> for list)
-/// \return NONE (constructs the SHAPE object)
+/// \param nameInput - <b>string</b> - name of the shape to create (Circle, Square, Unknown)
+/// \param colourInput - <b>string</b> - colour of the shape
+/// \return NONE (constructs the Shape object)
 
 Shape::Shape(string nameInput, string colourInput)
 {
-	const string AVAILABLE_NAMES[] = { "Circle", "Square","Unknown" };
+	const string AVAILABLE_NAMES[] = { "Circle", "Square","Unknown" }; ///< list of available shapes
 	const int AVAILABLE_NAMES_LEN = sizeof(AVAILABLE_NAMES) / sizeof(string);
 	const unsigned long MAX_NAME_LEN = 50; // max 50 characters allowed in name input
 
@@ -47,7 +47,7 @@ Shape::Shape(string nameInput, string colourInput)
 
 
 
-	const string AVAILABLE_COLOURS[] = { "red", "green", "blue", "yellow", "purple", "pink", "orange", "undefined" };
+	const string AVAILABLE_COLOURS[] = { "red", "green", "blue", "yellow", "purple", "pink", "orange", "undefined" }; ///< list of available colours
 	const int AVAILABLE_COLOURS_LEN = sizeof(AVAILABLE_COLOURS) / sizeof(string);
 	const unsigned long MAX_COLOUR_LEN = 10; // max 10 characters allowed in colour input
 
@@ -74,11 +74,11 @@ Shape::Shape(string nameInput, string colourInput)
 
 }
 
-/// \brief To instantiate a new SHAPE object with no attributes given (set's default values)
+/// \brief To instantiate a new Shape object with no attributes given (set's default values)
 /// \details <b>Details</b>
 /// 
 /// \param  NONE
-/// \return NONE (constructs the SHAPE object)
+/// \return NONE (constructs the Shape object)
 Shape::Shape()
 {
 	name = "Unknown";

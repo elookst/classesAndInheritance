@@ -3,7 +3,7 @@
 //	PROJECT			:	OOP Assignment #4
 //	PROGRAMMER		:	Erica Luksts
 //	FIRST-VERSION	:	July 14, 2021
-//	DESCRIPTION		:	This file contains the class definition for the shapes class.
+//	DESCRIPTION		:	This file contains the class definition for the Shape class.
 
 #include <iostream>
 #include <string>

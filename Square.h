@@ -1,20 +1,29 @@
 #pragma once
-//definition for square
+//	FILE			:	Square.h
+//	PROJECT			:	OOP Assignment #4
+//	PROGRAMMER		:	Erica Luksts
+//	FIRST-VERSION	:	July 14, 2021
+//	DESCRIPTION		:	This file contains the class definition for the Square class.
 
 #include <iostream>
 #include <string>
 #include "Shape.h"
 
+/// 
+/// \class Square
+///
+/// \brief The purpose of this class is to model characteristics of a square.
+/// The class publicly inherits methods and functions from the Shape class.
+/// This class includes a data member to model the dimension of the square in centimetres,
+/// and overrides virtual functions for perimeter, area, and overall dimension calculations.
 class Square : public Shape
 {
 private:
-	float sideLength;
-	//val must be greater than or equal to 0
+	float sideLength; ///< length of the side of the square, which must be greater than 0.00
 
 public:
 	Square(std::string colourInput, float sideLengthInput);
 
-	//default constructor
 	Square();
 
 	virtual ~Square();
@@ -22,7 +31,6 @@ public:
 	float GetSideLength(void);
 
 	int SetSideLength(float sideLengthInput);
-	//set the attribute if valid only
 
 	void Show(void);
 
@@ -31,12 +39,6 @@ public:
 	virtual float Area(void);
 
 	virtual float OverallDimension(void);
-	//display properties (inherit maybe?)
-
-	//p = 4s
-	// a = s^2
-	
-	//Overall Dimension should return side length of square (s)
 
 
 };
