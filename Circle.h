@@ -26,7 +26,7 @@ public:
 	//getters for name and colour?
 	//validate input
 
-	int Show(void);
+	void Show(void);
 
 	virtual float Perimeter(void);
 

@@ -14,8 +14,8 @@ Circle::Circle(string colourInput, float radiusInput) : Shape("Circle", colourIn
 	
 	//check that this works for 0.001, 0.0001 but not 0.01 or 0.1
 	double radiusDiff = radiusInput - 0.00;
-	double tolerance = 0.0005;
-	if (radiusDiff < tolerance && radiusInput >= 0.00)
+	double tolerance = 0.001;
+	if (radiusDiff > tolerance && radiusInput >= 0.00)
 	{
 		radius = radiusInput;
 	}
@@ -35,7 +35,7 @@ Circle::Circle() : Shape("Circle", "undefined")
 
 Circle::~Circle()
 {
-	cout << "The circle is broken ...";
+	cout << "The circle is broken ...\n";
 }
 
 
@@ -51,8 +51,8 @@ int Circle::SetRadius(float radiusInput)
 {
 	//check that this works for 0.001, 0.0001 but not 0.01 or 0.1
 	double radiusDiff = radiusInput - 0.00;
-	double tolerance = 0.0005;
-	if (radiusDiff < tolerance && radiusInput >= 0.00)
+	double tolerance = 0.001;
+	if ((radiusDiff > tolerance) && radiusInput >= 0.00)
 	{
 		radius = radiusInput;
 		return 0; //success
@@ -64,25 +64,25 @@ int Circle::SetRadius(float radiusInput)
 }
 
 
-int Circle::Show(void)
+void Circle::Show(void)
 {
 	cout << "Shape Information:\n";
-	cout << "Name             : " << Shape::GetName();
-	cout << "Colour           : " << Shape::GetColour();
-	cout << "Radius           : " << GetRadius() << " cm";
-	cout << "Circumference    : " << Perimeter() << " cm";
-	cout << "Area             : " << Area() << " cm";
+	cout << "Name             : " << Shape::GetName() << "\n";
+	cout << "Colour           : " << Shape::GetColour() << "\n";
+	cout << "Radius           : " << GetRadius() << " cm" << "\n";
+	cout << "Circumference    : " << Perimeter() << " cm" << "\n";
+	cout << "Area             : " << Area() << " cm^2" << "\n";
 }
 
 float Circle::Perimeter(void)
 {
-	float perimeter = 2 * PI * radius;
+	float perimeter = 2 * (float)PI * radius;
 	return perimeter;
 }
 
 float Circle::Area(void)
 {
-	float area = PI * radius * radius;
+	float area = (float)PI * radius * radius;
 	return area;
 }
 

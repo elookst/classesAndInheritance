@@ -16,9 +16,9 @@ int main(void)
 {
 
 	string userShape = "";
-	Circle* userCircle;
-	Square* userSquare;
-	Shape* userUnknownShape;
+	Circle* userCircle = NULL;
+	Square* userSquare = NULL;
+	Shape* userUnknownShape = NULL;
 	
 	cout << "Enter name of shape you want to make: ";
 	cin >> userShape;
@@ -28,55 +28,46 @@ int main(void)
 	cin >> userColour;
 
 
-	cout << "Creating shape....";
+	cout << "Creating shape....\n";
 	if (userShape == "Circle")
 	{
 		
 		float userRadius = 0;
 		cout << "Enter radius of circle: ";
 		cin >> userRadius;
-		try
+		if ((userCircle = new Circle(userColour, userRadius)) == NULL)
 		{
-			userCircle = new Circle(userColour, userRadius);
+			cout << "Out of memory!\n";
+			return -1; 
 		}
-		catch (bad_alloc& userCircle)
-		{
-			cout << "Out of memory!";
-		}
-		
 
 	}
 	else if (userShape == "Square")
 	{
 
-
 		float userSideLength = 0;
 		cout << "Enter side length of square: ";
 		cin >> userSideLength;
-		try
+		if ((userSquare = new Square(userColour, userSideLength)) == NULL)
 		{
-			userSquare = new Square(userColour, userSideLength);
+			cout << "Out of memory!\n";
+			return -1;
 		}
-		catch (bad_alloc& userSquare)
-		{
-			cout << "Out of memory!";
-		}
+
 	}
 	else
 	{
 		
-		try
+		if ((userUnknownShape = new Shape(userShape, userColour)) == NULL)
 		{
-			userUnknownShape = new Shape(userShape, userColour);
+			cout << "Out of memory!\n";
+			return -1;;
 		}
-		catch(bad_alloc& userUnknownShape)
-		{
-			cout << "Out of memory!";
-		}
+
 
 	}
 
-	cout << "Now displaying information... ";
+	cout << "Now displaying information...\n ";
 	if (userCircle != NULL)
 	{
 		userCircle->Show();
@@ -90,9 +81,9 @@ int main(void)
 	}
 	else
 	{
-		cout << "Shape Information";
-		cout << "Name:       " << userUnknownShape->GetName();
-		cout << "Colour:     " << userUnknownShape->GetColour();
+		cout << "Shape Information\n";
+		cout << "Name:       " << userUnknownShape->GetName() << "\n";
+		cout << "Colour:     " << userUnknownShape->GetColour() << "\n";
 		delete(userUnknownShape);
 	}
 

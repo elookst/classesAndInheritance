@@ -1,3 +1,4 @@
+#pragma once
 //class definition for shape
 
 #include <iostream>

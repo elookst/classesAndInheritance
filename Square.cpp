@@ -12,8 +12,8 @@ Square::Square(string colourInput, float sideLengthInput) : Shape("Square", colo
 {
 	//check that this works for 0.001, 0.0001 but not 0.01 or 0.1
 	double sideDiff = sideLengthInput - 0.00;
-	double tolerance = 0.0005;
-	if (sideDiff < tolerance && sideLengthInput >= 0.00)
+	double tolerance = 0.001;
+	if (sideDiff > tolerance && sideLengthInput >= 0.00)
 	{
 		sideLength = sideLengthInput;
 	}
@@ -31,7 +31,7 @@ Square::Square() : Shape("Square", "undefined")
 
 Square::~Square()
 {
-	cout << "The square is squished ...";
+	cout << "The square is squished ...\n";
 }
 
 
@@ -46,8 +46,8 @@ int Square::SetSideLength(float sideLengthInput)
 {
 	//check that this works for 0.001, 0.0001 but not 0.01 or 0.1
 	double sideDiff = sideLengthInput - 0.00;
-	double tolerance = 0.0005;
-	if (sideDiff < tolerance && sideLengthInput >= 0.00)
+	double tolerance = 0.001;
+	if (sideDiff > tolerance && sideLengthInput >= 0.00)
 	{
 		sideLength = sideLengthInput;
 		return 0; // success
@@ -63,11 +63,11 @@ int Square::SetSideLength(float sideLengthInput)
 void Square::Show(void)
 {
 	cout << "Shape Information:\n";
-	cout << "Name             : " << Shape::GetName();
-	cout << "Colour           : " << Shape::GetColour();
-	cout << "Side-Length      : " << GetSideLength() << " cm";
-	cout << "Perimeter        : " << Perimeter() << " cm";
-	cout << "Area             : " << Area() << " cm";
+	cout << "Name             : " << Shape::GetName() << "\n";
+	cout << "Colour           : " << Shape::GetColour() << "\n";
+	cout << "Side-Length      : " << GetSideLength() << " cm" << "\n";
+	cout << "Perimeter        : " << Perimeter() << " cm" << "\n";
+	cout << "Area             : " << Area() << " cm^2" << "\n";
 
 }
 

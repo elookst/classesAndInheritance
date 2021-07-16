@@ -14,18 +14,21 @@ Shape::Shape(string nameInput, string colourInput)
 
 	if (nameInput.length() <= MAX_NAME_LEN)
 	{
-		for (int i = 0; i < AVAILABLE_NAMES_LEN; i++)
+		int i = 0;
+		for (i = 0; i < AVAILABLE_NAMES_LEN; i++)
 		{
 			if (nameInput == AVAILABLE_NAMES[i])
 			{
 				name = nameInput;
 			}
 		}
+
 	}
-	else
+	else if (name == "")
 	{
 		name = "Unknown";
 	}
+
 
 
 	const string AVAILABLE_COLOURS[] = { "red", "green", "blue", "yellow", "purple", "pink", "orange", "undefined" };
@@ -34,15 +37,20 @@ Shape::Shape(string nameInput, string colourInput)
 
 	if (colourInput.length() <= MAX_COLOUR_LEN)
 	{
-		for (int i = 0; i < AVAILABLE_COLOURS_LEN; i++)
+		int j = 0;
+		for (j = 0; j < AVAILABLE_COLOURS_LEN; j++)
 		{
-			if (colourInput == AVAILABLE_COLOURS[i])
+			if (colourInput == AVAILABLE_COLOURS[j])
 			{
 				colour = colourInput;
 			}
 		}
+		if (j == AVAILABLE_COLOURS_LEN)
+		{
+			colour = "undefined";
+		}
 	}
-	else
+	else if (name == "")
 	{
 		colour = "undefined";
 	}
