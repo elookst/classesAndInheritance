@@ -7,7 +7,6 @@
 #include "Circle.h"
 #include "Square.h"
 
-#define quitKey "q"
 
 using namespace std;
 
@@ -17,6 +16,9 @@ int main(void)
 {
 
 	string userShape = "";
+	Circle* userCircle;
+	Square* userSquare;
+	Shape* userUnknownShape;
 	
 	cout << "Enter name of shape you want to make: ";
 	cin >> userShape;
@@ -29,8 +31,7 @@ int main(void)
 	cout << "Creating shape....";
 	if (userShape == "Circle")
 	{
-		Circle* userCircle;
-
+		
 		float userRadius = 0;
 		cout << "Enter radius of circle: ";
 		cin >> userRadius;
@@ -47,7 +48,7 @@ int main(void)
 	}
 	else if (userShape == "Square")
 	{
-		Square* userSquare;
+
 
 		float userSideLength = 0;
 		cout << "Enter side length of square: ";
@@ -63,7 +64,7 @@ int main(void)
 	}
 	else
 	{
-		Shape* userUnknownShape;
+		
 		try
 		{
 			userUnknownShape = new Shape(userShape, userColour);
@@ -76,11 +77,24 @@ int main(void)
 	}
 
 	cout << "Now displaying information... ";
+	if (userCircle != NULL)
+	{
+		userCircle->Show();
+		delete(userCircle);
 
-
-
-
-	
+	}
+	else if (userSquare != NULL)
+	{
+		userSquare->Show();
+		delete(userSquare);
+	}
+	else
+	{
+		cout << "Shape Information";
+		cout << "Name:       " << userUnknownShape->GetName();
+		cout << "Colour:     " << userUnknownShape->GetColour();
+		delete(userUnknownShape);
+	}
 
 
 	return 0;
