@@ -1,10 +1,21 @@
-//methods for shape class
+//	FILE			:	Shape.cpp
+//	PROJECT			:	OOP Assignment #4
+//	PROGRAMMER		:	Erica Luksts
+//	FIRST-VERSION	:	July 14, 2021
+//	DESCRIPTION		:	This file contains the definition for the methods and functions of the SHAPES class.
 
 #include <iostream>
 #include <string>
 #include "Shape.h"
 
 using namespace std;
+
+/// \brief To instantiate a new SHAPE object - given a set of attribute values
+/// \details <b>Details</b>
+/// 
+/// \param nameInput - <b>string</b> - name of the shape to create (CIRCLE, SQUARE, UNKNOWN)
+/// \param colourInput - <b>string</b> - colour of the shape (see constant <i>AVAILABLE_COLOURS</i> for list)
+/// \return NONE (constructs the SHAPE object)
 
 Shape::Shape(string nameInput, string colourInput)
 {
@@ -63,12 +74,24 @@ Shape::Shape(string nameInput, string colourInput)
 
 }
 
+/// \brief To instantiate a new SHAPE object with no attributes given (set's default values)
+/// \details <b>Details</b>
+/// 
+/// \param  NONE
+/// \return NONE (constructs the SHAPE object)
 Shape::Shape()
 {
 	name = "Unknown";
 	colour = "undefined";
 }
 
+
+/// \brief Called to display the name of the Shape
+/// \details <b>Details</b>
+///
+/// \param - NONE
+/// 
+/// \return Returns the name of the Shape as a string
 string Shape::GetName(void)
 {
 	string returnName;
@@ -78,6 +101,12 @@ string Shape::GetName(void)
 	return returnName;
 }
 
+/// \brief Called to display the colour of the Shape
+/// \details <b>Details</b>
+///
+/// \param - NONE
+/// 
+/// \return Returns the colour of the Shape as a string
 string Shape::GetColour(void)
 {
 	string returnColour;
@@ -87,7 +116,13 @@ string Shape::GetColour(void)
 	return returnColour;
 }
 
-
+/// \brief Called to modify the name of the shape after it has been constructed
+/// \details <b>Details</b>
+///
+/// \param nameInput - <b>string</b> - new name of the shape
+/// 
+/// \return Returns int - <b>0</b> if successful, <b>-1</b> if acceptable input but no name found
+/// <b>-2</b> invalid input (name too long) or <b>-3</b> no name given as input
 int Shape::SetName(string nameInput)
 {
 	const string AVAILABLE_NAMES[] = { "Circle", "Square","Unknown" };
@@ -119,6 +154,13 @@ int Shape::SetName(string nameInput)
 	return -3;  //error
 }
 
+/// \brief Called to modify the colour of the shape after it has been constructed
+/// \details <b>Details</b>
+///
+/// \param colourInput - <b>string</b> - new colour of the shape
+/// 
+/// \return Returns int - <b>0</b> if successful, <b>-1</b> if acceptable input but no colour found
+/// <b>-2</b> invalid input (name too long) or <b>-3</b> no name given as input
 int Shape::SetColour(string colourInput)
 {
 	const string AVAILABLE_COLOURS[] = { "red", "green", "blue", "yellow", "purple", "pink", "orange", "undefined" };
@@ -149,17 +191,37 @@ int Shape::SetColour(string colourInput)
 	return -3;  //error
 }
 
-//3 pure virtual functions
+/// \brief Called to calculate perimeter of the shape
+/// \details <b>Details</b>
+///
+/// \param NONE
+/// 
+/// \return Returns float - for Shape class, it returns 0.00 and the virtual function
+/// is used elsewhere by the other child classes.
 float Shape::Perimeter(void)
 {
 	return 0.00;
 }
 
+/// \brief Called to calculate area of the shape
+/// \details <b>Details</b>
+///
+/// \param NONE
+/// 
+/// \return Returns float - for Shape class, it returns 0.00 and the virtual function
+/// is used elsewhere by the other child classes.
 float Shape::Area(void)
 {
 	return 0.00;
 }
 
+/// \brief Called to display the dimension of the shape (side length etc.)
+/// \details <b>Details</b>
+///
+/// \param NONE
+/// 
+/// \return Returns float - for Shape class, it returns 0.00 and the virtual function
+/// is used elsewhere by the other child classes.
 float Shape::OverallDimension(void)
 {
 	return 0.00;
